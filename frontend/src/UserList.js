@@ -12,7 +12,7 @@ class UserList extends Component {
     }
 
     componentDidMount() {
-        fetch('/user')
+        fetch('/user/list')
             .then(response => response.json())
             .then(data => this.setState({users: data}));
     }
@@ -61,15 +61,15 @@ class UserList extends Component {
                     <h3>Users</h3>
                     <Table className="mt-4">
                         <thead>
-                        <tr>
-                            <th width="25%">Name</th>
-                            <th width="25%">Email</th>
-                            <th width="25%">Age</th>
-                            <th width="25%">Actions</th>
-                        </tr>
+                            <tr>
+                                <th width="25%">Name</th>
+                                <th width="25%">Email</th>
+                                <th width="25%">Age</th>
+                                <th width="25%">Actions</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        {userList}
+                            {userList}
                         </tbody>
                     </Table>
                 </Container>

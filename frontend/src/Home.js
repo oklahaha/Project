@@ -6,14 +6,15 @@ import { Button, Container } from 'reactstrap';
 
 class Home extends Component {
     render() {
-        return (
+        return(
             <div>
                 <AppNavbar/>
                 <Container fluid>
-                    <Button color="link"><Link to="/User">User</Link></Button>
+                    <Button color="link"><Link to="/user">User</Link></Button>
+                    <Button color="link"><Link to="/test">Test</Link></Button>
                 </Container>
             </div>
-        );
-    }
+        )
+    };
 }
 export default Home;
