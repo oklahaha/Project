@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import AppNavbar from './AppNavbar';
-import Footer from './Footer';
+import './css/App.css';
 
 const apple = "Apple";
 const banana = "Banana";
@@ -45,15 +43,21 @@ function doublePi() {
     return pi * 2;
 }
 
+// const numbers = [3, 56, 2, 48, 5];
+
+// const newNumbers = numbers.map(x => x * 2);
+// const newNumbers = numbers.filter(x => x < 10);
+// const newNumbers = numbers.reduce((accumulator, currentNumber) => accumulator + currentNumber);
+// const newNumbers = numbers.find(x => x > 10);
+// const newNumbers = numbers.findIndex(x => x > 10);
+
 export default class Test extends Component {
   render() {
     return (
         <div>
-            <AppNavbar/>
             <Heading />
             <h2 >My favourite foods {doublePi()}</h2>
             <List />
-            <Footer />
         </div>
     )
   }

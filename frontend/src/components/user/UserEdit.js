@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
-import AppNavbar from './AppNavbar';
+import AppNavbar from '../common/AppNavbar';
 import { useLocation, useNavigate, useParams, Link} from "react-router-dom";
 
 function withRouter(Component) {

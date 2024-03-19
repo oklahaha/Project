@@ -1,28 +1,35 @@
-package com.example.demo.model;
+package com.example.demo.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.beans.BeanUtils;
 
-@Entity
-@Table(name = "user")
-public class User {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String userId;
+import com.example.demo.model.User;
 
-    private String userName;
+public class UserDto {
+    private String userId = null;
 
-    private int age;
+    private String userName = null;
 
-    private String email;
+    private int age = 0;
 
-    private String tel;
+    private String email = null;
 
-    private String img;
+    private String tel = null;
+
+    private String img = null;
+
+    public UserDto() {
+
+    }
+
+    public UserDto(User user) {
+        BeanUtils.copyProperties(user, this);
+    }
+
+    public User toModel() {
+        User user = new User();
+        BeanUtils.copyProperties(this, user);
+        return user;
+    }
 
     public String getUserId() {
         return userId;
@@ -70,6 +77,12 @@ public class User {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto [userId=" + userId + ", userName=" + userName + ", age=" + age + ", email=" + email + ", tel="
+                + tel + ", img=" + img + "]";
     }
 
     
