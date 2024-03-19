@@ -16,6 +16,8 @@ public class User {
 
     private String userName;
 
+    private String password;
+
     private int age;
 
     private String email;
@@ -72,5 +74,12 @@ public class User {
         this.img = img;
     }
 
-    
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import '../../css/styles.css';
 import Card from 'react-bootstrap/Card';
 
@@ -15,31 +15,18 @@ function createCard(user) {
     )
 }
 
-export default class UserCard extends Component {
+export default function UserCard() {
+    const [users, setUsers] = useState([]);
 
-    constructor(props) {
-        super(props);
-        this.state = {users: []};
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         fetch('/user/list')
-            .then(response => response.json())
-            .then(data => this.setState({users: data}));
-    }
+        .then(response => response.json())
+        .then(data => setUsers(data))
+    }, []);
 
-    render() {
-        
-        const {users, isLoading} = this.state;
-
-        if (isLoading) {
-            return <p>Loading...</p>;
-        }
-
-        return (
-            <div>
-                {users.map(createCard)}
-            </div>
-        )
-    }
+    return (
+        <div>
+            {users.map(createCard)}
+        </div>
+    )
 }
